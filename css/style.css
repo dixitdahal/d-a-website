@@ -1,4 +1,5 @@
 /* ===== Variables ===== */
+
 :root {
   --green: #0b4a1c;
   --green-light: #1f7a3a;
@@ -11,14 +12,14 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: 'Verdana', sans-serif;
+  font-family: 'verdana', sans-serif;
   color: var(--ink);
   background: var(--bg);
   line-height: 1.6;
 }
 
 h1, h2, h3 {
-  font-family: 'Verdana', serif;
+  font-family: 'Merriweather', serif;
   color: var(--green);
 }
 
@@ -31,7 +32,7 @@ header {
 }
 
 nav {
-    font-family: 'Verdana', serif; ;
+  font-family: 'Merriweather', serif;
   max-width: 1100px;
   margin: auto;
   padding: 12px 20px;
@@ -109,14 +110,21 @@ transform: scale(1.05);}
 .cards {
   max-width: 1100px;
   margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  gap:24px;
+  
+}
+
+.cards .card {
+width: calc((100% - 72px) / 4);
 }
 
 .card {
   background: #fff;
-  padding: 28px;
+  padding: 30px;
   border-radius: 8px;
   border-top: 8px solid var(--green);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.06);
@@ -124,11 +132,19 @@ transform: scale(1.05);}
   
 }
 
+.card h3 { margin-bottom: 8px; }
+
+
 .card:hover {
  transform: scale(1.05); 
+ color: var(--green-light);
+ border-color:var(--green-light);
  }
 
-.card h3 { margin-bottom: 8px; }
+ .card:hover h3 {
+  color: var(--green-light);
+}
+
 
 /* ===== Inquiry ===== */
 .inquiry { text-align: center;
@@ -147,7 +163,31 @@ footer {
   padding: 24px;
 }
 
+/* ===== Services ===== */
+.page-banner{ 
+  background: var(--green);
+  color: #fff;
+  text-align: center;
+  padding: 60px 30px;
+}
+
+.page-banner h1 { color: #fff; margin-bottom: 8px; }
+
+.services-list {
+background: var(--soft);
+padding: 60px 20px;
+}
+
 /* ===== Mobile ===== */
+
+@media (max-width: 900px) {
+.cards .card { width: calc((100% - 24px) / 2); }
+}
+
+@media (max-width: 600px) {
+.cards .card { width: 100%; }
+}
+
 @media (max-width: 600px) {
   nav { flex-direction: column; gap: 12px; }
   nav ul { gap: 16px; flex-wrap: wrap; justify-content: center; }
